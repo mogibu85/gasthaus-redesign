@@ -1,0 +1,236 @@
+/* ============================================================
+   GASTHAUS GINNHEIMER HÖHE — Miller-Layoutsprache, Gasthaus-Brand
+   Geteiltes Stylesheet für alle Seiten.
+   ============================================================ */
+
+:root{
+  /* Marke (aus der bestehenden Gasthaus-Site übernommen) */
+  --cream:   #FEFDF4;
+  --forest:  #172719;
+  --forest2: #1E3320;
+  --green:   #147218;
+  --burg:    #942143;
+  --muted:   #8A5754;
+  --parch:   #E5E1D0;
+
+  --sans:   "Hanken Grotesk", system-ui, sans-serif;
+  --display:"Bodoni Moda", Georgia, "Times New Roman", serif;
+
+  --ls-kicker:.2em;
+  --ls-label:.16em;
+
+  /* fluide Typo — Miller-Manier: sehr große Display-Headlines */
+  --h1: clamp(3.2rem, 1.6rem + 6.4vw, 6rem);
+  --h2: clamp(2.6rem, 1.5rem + 4.6vw, 4.4rem);
+  --h3: clamp(1.6rem, 1.3rem + 1.4vw, 2.2rem);
+  --text: clamp(1rem, .96rem + .25vw, 1.13rem);
+
+  --radius:30px;
+  --gutter:20px;
+  --section-pad: clamp(4rem, 8vw, 9rem);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--forest);
+  font-family:var(--sans);
+  font-size:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem)}
+
+.kicker{
+  font-family:var(--sans);font-weight:600;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:var(--ls-kicker);color:var(--green);
+}
+
+/* ---------- HEADER (absolut, transparent über Hero) ---------- */
+.site-header{
+  position:absolute;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(1rem,2vw,1.75rem) clamp(1.25rem,4vw,3rem);
+}
+.site-header .logo{display:flex;align-items:center;gap:.7rem;color:var(--cream)}
+.site-header .logo img{width:clamp(46px,5vw,60px);height:auto;border-radius:8px}
+.site-header .logo b{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.01em}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2vw,2.2rem)}
+.nav a{font-weight:600;font-size:.95rem;letter-spacing:.02em;color:var(--cream);transition:opacity .2s}
+.nav a:hover{opacity:.65}
+.nav a.btn{border:1.5px solid var(--cream);border-radius:100px;padding:.55em 1.4em}
+.nav a.btn:hover{background:var(--cream);color:var(--forest);opacity:1}
+.nav-toggle{display:none}
+
+/* header-Variante für helle Innenseiten (kein Hero dahinter) */
+.site-header.solid{position:relative;background:var(--forest)}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 clamp(1.25rem,4vw,3rem) clamp(3rem,7vw,6rem);
+  color:var(--cream);
+  background:url("img/hero-ig.jpg") center/cover no-repeat;
+}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(23,39,25,.35) 0%,rgba(23,39,25,.78) 100%);z-index:0}
+.hero>*{position:relative;z-index:1}
+.hero .kicker{color:var(--cream);opacity:.9;margin-bottom:1rem}
+.hero h1{font-size:var(--h1);color:var(--cream);max-width:16ch}
+.hero h1 em{font-style:italic;color:var(--parch)}
+.hero p{max-width:48ch;margin-top:1.5rem;color:var(--cream);opacity:.92}
+.hero .cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.btn-solid{background:var(--burg);color:var(--cream);border-radius:100px;padding:.8em 1.8em;font-weight:600;transition:.25s}
+.btn-solid:hover{background:#7a1937}
+.btn-ghost{border:1.5px solid var(--cream);color:var(--cream);border-radius:100px;padding:.8em 1.8em;font-weight:600;transition:.25s}
+.btn-ghost:hover{background:var(--cream);color:var(--forest)}
+
+/* ---------- SLIDER (Aus der Küche) ---------- */
+.slider-sec{padding:var(--section-pad) 0}
+.slider-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.5rem}
+.slider-head h2{font-size:var(--h2);color:var(--forest)}
+.slider-ctrls{display:flex;gap:.75rem}
+.slider-ctrls button{
+  width:54px;height:54px;border-radius:100px;cursor:pointer;
+  border:1.5px solid var(--forest);background:transparent;color:var(--forest);
+  font-size:1.3rem;line-height:1;transition:.2s;display:grid;place-items:center;
+}
+.slider-ctrls button:hover{background:var(--forest);color:var(--cream)}
+.slider-ctrls button:disabled{opacity:.3;cursor:default;background:transparent;color:var(--forest)}
+.slider-viewport{overflow:hidden}
+.slider-track{
+  display:flex;gap:1.5rem;
+  scroll-snap-type:x mandatory;overflow-x:auto;scroll-behavior:smooth;
+  padding-bottom:1rem;cursor:grab;
+  scrollbar-width:none;
+}
+.slider-track::-webkit-scrollbar{display:none}
+.slider-track.dragging{cursor:grabbing;scroll-behavior:auto}
+.slide{
+  flex:0 0 clamp(260px,80vw,380px);scroll-snap-align:start;
+  border:1.5px solid var(--forest);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;background:var(--cream);
+}
+.slide .ph{height:260px;overflow:hidden;background:var(--forest)}
+.slide .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.slide:hover .ph img{transform:scale(1.06)}
+.slide .body{padding:1.5rem 1.5rem 1.75rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.slide .cat{font-size:.75rem;text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--green);font-weight:600}
+.slide h3{font-size:1.5rem}
+.slide .price{margin-top:auto;font-weight:600;color:var(--burg)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{padding-bottom:clamp(3rem,7vw,6rem);overflow:hidden;white-space:nowrap;
+  color:var(--green);font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,2vw,1.6rem)}
+.marquee__track{display:inline-block;animation:scroll 32s linear infinite}
+.marquee__track span{padding-inline:1.2rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- FEATURE-Karte (gerundet, Bild) ---------- */
+.feature{margin-inline:var(--gutter);border-radius:var(--radius);overflow:hidden;position:relative;
+  color:var(--cream);background:url("img/interior.jpg") center/cover no-repeat;
+  display:flex;align-items:flex-end;min-height:clamp(520px,72vh,840px)}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,39,25,.1),rgba(23,39,25,.72));z-index:0}
+.feature__inner{position:relative;z-index:1;padding:clamp(2rem,5vw,5rem);max-width:640px}
+.feature .kicker{color:var(--parch);margin-bottom:1rem}
+.feature h2{font-size:var(--h2);color:var(--cream);margin-bottom:1.25rem}
+.feature p{margin-bottom:1.75rem;opacity:.92}
+.link-arrow{font-weight:600;display:inline-flex;gap:.4em;transition:gap .25s;color:var(--cream)}
+.link-arrow:hover{gap:.8em}
+
+/* ---------- CTA-Karte (burgundy) ---------- */
+.cta-sec{padding:var(--section-pad) 0}
+.cta-card{background:var(--burg);color:var(--cream);border-radius:var(--radius);
+  padding:clamp(2.5rem,6vw,6rem);display:grid;gap:1.5rem;text-align:center;justify-items:center}
+.cta-card .kicker{color:var(--parch)}
+.cta-card h2{font-size:var(--h2);color:var(--cream);max-width:16ch}
+.cta-card p{max-width:50ch;opacity:.92}
+.cta-card .btn-ghost{margin-top:.5rem}
+
+/* ---------- FOOTER ---------- */
+.site-footer{background:var(--forest);color:var(--cream);padding:var(--section-pad) 0 3rem;margin-top:var(--section-pad)}
+.footer-grid{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.footer-grid h4{font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-label);
+  font-size:.8rem;margin-bottom:1rem;color:var(--parch)}
+.footer-grid p,.footer-grid a{font-size:1rem;line-height:1.8;opacity:.9}
+.footer-grid a:hover{opacity:1;color:var(--parch)}
+.footer-bottom{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid rgba(254,253,244,.25);
+  display:flex;flex-wrap:wrap;gap:1rem 2rem;font-size:.9rem;opacity:.8}
+
+/* ============================================================
+   SPEISEKARTE
+   ============================================================ */
+.page-hero{background:var(--forest);color:var(--cream);padding:clamp(8rem,14vw,11rem) 0 clamp(3rem,6vw,5rem)}
+.page-hero .kicker{color:var(--green)}
+.page-hero h1{font-size:var(--h1);color:var(--cream);margin-top:.5rem}
+.page-hero p{max-width:52ch;margin-top:1.25rem;opacity:.9}
+
+.menu{padding:var(--section-pad) 0}
+.menu-group{margin-bottom:clamp(3rem,6vw,5rem)}
+.menu-group h2{font-size:var(--h2);color:var(--burg);margin-bottom:.5rem}
+.menu-group .rule{height:1.5px;background:var(--forest);opacity:.18;margin-bottom:1.5rem}
+.menu-item{display:flex;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px dotted rgba(23,39,25,.2)}
+.menu-item .name{font-weight:500}
+.menu-item .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--green);
+  border:1px solid var(--green);border-radius:100px;padding:.1em .6em;margin-left:.5rem}
+.menu-item .dots{flex:1;border-bottom:1px dotted rgba(23,39,25,.35);transform:translateY(-4px)}
+.menu-item .price{font-weight:600;color:var(--burg);font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu-note{margin-top:2rem;font-style:italic;color:var(--muted);font-family:var(--display)}
+.menu-sub{font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-label);
+  font-size:.8rem;color:var(--green);margin:1.5rem 0 .75rem}
+.menu-item .unit{font-size:.82rem;color:var(--muted);white-space:nowrap;margin-right:.6rem;font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   ÜBER UNS
+   ============================================================ */
+.story{padding:var(--section-pad) 0}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.story-grid .lede{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.35;color:var(--forest)}
+.story-grid .lede .green{color:var(--green)}
+.story-text p{margin-bottom:1.1rem}
+.story-img{border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--forest);aspect-ratio:4/5}
+.story-img img{width:100%;height:100%;object-fit:cover}
+
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:clamp(3rem,6vw,5rem)}
+.value-card{border:1.5px solid var(--forest);border-radius:var(--radius);padding:2rem 1.75rem}
+.value-card h3{font-size:1.4rem;color:var(--burg);margin-bottom:.6rem}
+.value-card p{font-size:1rem;line-height:1.7}
+
+.gallery-sec{padding:0 0 var(--section-pad)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-inline:var(--gutter)}
+.gallery figure{overflow:hidden;border-radius:18px;aspect-ratio:1;border:1.5px solid var(--forest)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.gallery figure:hover img{transform:scale(1.07)}
+
+/* ============================================================
+   KONTAKT
+   ============================================================ */
+.contact{padding:var(--section-pad) 0}
+.contact-grid{display:grid;gap:clamp(2rem,5vw,4rem);grid-template-columns:1fr 1fr}
+.contact-block h3{font-size:var(--h3);color:var(--burg);margin-bottom:1rem}
+.contact-block p{margin-bottom:1.2rem;line-height:1.8}
+.hours-row{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px dotted rgba(23,39,25,.2);max-width:420px}
+.hours-row .day{font-weight:600}
+.map-card{border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--forest);min-height:360px;background:var(--parch)}
+.map-card iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:860px){
+  .nav{position:fixed;inset:0;flex-direction:column;justify-content:center;background:var(--forest);
+    transform:translateX(100%);transition:transform .4s ease;font-size:1.4rem;gap:2rem}
+  .nav.open{transform:translateX(0)}
+  .nav-toggle{display:block;z-index:60;background:none;border:0;cursor:pointer;color:var(--cream);
+    font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .slider-head{flex-direction:column;align-items:flex-start}
+  .contact-grid{grid-template-columns:1fr}
+  .story-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+}

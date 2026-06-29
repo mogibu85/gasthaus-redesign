@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt &amp; Reservierung · Gasthaus Ginnheimer Höhe</title>
+<meta name="description" content="Kontakt, Anfahrt und Reservierung – Gasthaus Ginnheimer Höhe, Diebsgrundweg, 60487 Frankfurt am Main.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <a href="index.html" class="logo" aria-label="Gasthaus Ginnheimer Höhe">
+    <img src="logo.svg" alt=""><b>Ginnheimer Höhe</b>
+  </a>
+  <button class="nav-toggle" aria-label="Menü">Menü</button>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="speisekarte.html">Speisekarte</a>
+    <a href="getraenke.html">Getränke</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="#reservieren" class="btn">Reservieren</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Besuchen Sie uns</span>
+    <h1>Kontakt &amp; Anfahrt</h1>
+    <p>Wir freuen uns auf Ihren Besuch auf der Ginnheimer Höhe. Reservierungen am liebsten telefonisch.</p>
+  </div>
+</section>
+
+<section class="contact" id="reservieren">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="contact-block">
+        <h3>So erreichen Sie uns</h3>
+        <p>
+          Gasthaus Ginnheimer Höhe<br>
+          Diebsgrundweg<br>
+          60487 Frankfurt am Main
+        </p>
+        <p>
+          Telefon · <a href="tel:+496966129987">+49 69 66129987</a><br>
+          E-Mail · <a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a><br>
+          Instagram · <a href="https://instagram.com/gasthausginnheimerhoehe">@gasthausginnheimerhoehe</a>
+        </p>
+        <p><a class="btn-solid" href="tel:+496966129987" style="display:inline-block">Jetzt anrufen &amp; reservieren</a></p>
+
+        <h3 style="margin-top:2.5rem">Öffnungszeiten</h3>
+        <div class="hours-row"><span class="day">Montag</span><span>17:00 – 22:00</span></div>
+        <div class="hours-row"><span class="day">Dienstag</span><span>Ruhetag</span></div>
+        <div class="hours-row"><span class="day">Mittwoch</span><span>Ruhetag</span></div>
+        <div class="hours-row"><span class="day">Donnerstag</span><span>17:00 – 22:00</span></div>
+        <div class="hours-row"><span class="day">Freitag</span><span>11:30 – 22:00</span></div>
+        <div class="hours-row"><span class="day">Samstag</span><span>11:30 – 22:00</span></div>
+        <div class="hours-row"><span class="day">Sonntag</span><span>11:30 – 22:00</span></div>
+      </div>
+
+      <div class="contact-block">
+        <h3>Anfahrt</h3>
+        <p>Im Grünen am Stadtrand von Ginnheim – gut erreichbar mit dem Rad oder Auto.</p>
+        <div class="map-card">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Karte Ginnheimer Höhe"
+            src="https://www.google.com/maps?q=Gasthaus+Ginnheimer+H%C3%B6he+Frankfurt&output=embed"></iframe>
+        </div>
+        <p style="margin-top:1.2rem"><a class="link-arrow" style="color:var(--burg)" href="https://www.google.com/maps?q=Gasthaus+Ginnheimer+H%C3%B6he+Frankfurt">→ Route planen</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>Öffnungszeiten</h4><p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>Freitag – Sonntag 11:30–22:00 Uhr<br>Dienstag &amp; Mittwoch Ruhetag</p></div>
+      <div><h4>Kontakt</h4><p>Diebsgrundweg · 60487 Frankfurt am Main<br>Tel. <a href="tel:+496966129987">+49 69 66129987</a><br><a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p></div>
+      <div><h4>Folgen</h4><p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p></div>
+    </div>
+    <div class="footer-bottom"><span>© Gasthaus Ginnheimer Höhe</span><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Über uns · Gasthaus Ginnheimer Höhe</title>
+<meta name="description" content="Über die Ginnheimer Höhe: regionale Küche mit italienischer Lebensart, hausgemachte Pasta und Kuchen – ein Gasthaus zum Bleiben in Frankfurt-Ginnheim.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <a href="index.html" class="logo" aria-label="Gasthaus Ginnheimer Höhe">
+    <img src="logo.svg" alt=""><b>Ginnheimer Höhe</b>
+  </a>
+  <button class="nav-toggle" aria-label="Menü">Menü</button>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="speisekarte.html">Speisekarte</a>
+    <a href="getraenke.html">Getränke</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="kontakt.html#reservieren" class="btn">Reservieren</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Über uns</span>
+    <h1>Wo Frankfurt zu Tisch geht.</h1>
+    <p>Regionale Küche mit italienischer Lebensart – an einem Ort, an dem man gern sitzen bleibt.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-text">
+        <p class="lede">Bodenständig, frisch und <span class="green">ohne großes Tamtam</span> – so kochen wir auf der Ginnheimer Höhe.</p>
+        <p>Bei uns trifft regionale Küche auf italienische Lebensart: frische Pasta, kräftige Klassiker und Salate, die nach Saison gehen. Vieles entsteht in Handarbeit – von den Saucen bis zu den Kuchen.</p>
+        <p>Dazu täglich wechselnde Tages- und Saisongerichte. Was gut ist, kommt auf den Teller – ehrlich angerichtet und gern zum Teilen.</p>
+      </div>
+      <div class="story-img">
+        <img src="img/interior.jpg" alt="Gastraum der Ginnheimer Höhe">
+      </div>
+    </div>
+
+    <div class="values">
+      <div class="value-card">
+        <h3>Regional &amp; italienisch</h3>
+        <p>Bodenständige Klassiker neben Pasta und Antipasti – das Beste aus beiden Küchen.</p>
+      </div>
+      <div class="value-card">
+        <h3>Hausgemacht</h3>
+        <p>Frische Pasta, Saucen und Kuchen aus eigener Herstellung.</p>
+      </div>
+      <div class="value-card">
+        <h3>Saisonal</h3>
+        <p>Täglich wechselnde Tages- und Saisongerichte, je nach Markt und Wetter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec">
+  <div class="gallery">
+    <figure><img src="img/gallery/champagne.jpg" alt="Sekt auf der Terrasse" loading="lazy"></figure>
+    <figure><img src="img/gallery/teller.jpg" alt="Gericht auf der Terrasse" loading="lazy"></figure>
+    <figure><img src="img/gallery/tisch.jpg" alt="Gäste am Tisch" loading="lazy"></figure>
+    <figure><img src="img/gallery/kraeuter.jpg" alt="Frische Kräuter und Wein" loading="lazy"></figure>
+    <figure><img src="img/gallery/plate.jpg" alt="Angerichtetes Gericht" loading="lazy"></figure>
+    <figure><img src="img/gallery/cocktail.jpg" alt="Drink auf der Terrasse" loading="lazy"></figure>
+    <figure><img src="img/gallery/schnitzel2.jpg" alt="Schnitzel-Klassiker" loading="lazy"></figure>
+    <figure><img src="img/gallery/drinks.jpg" alt="Drinks am Abend" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="cta-card">
+      <span class="kicker">Reservierung</span>
+      <h2>Kommen Sie vorbei.</h2>
+      <p>Wir freuen uns auf Ihren Besuch auf der Höhe – reservieren Sie am besten telefonisch.</p>
+      <a href="kontakt.html#reservieren" class="btn-ghost">Tisch reservieren</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>Öffnungszeiten</h4><p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>Freitag – Sonntag 11:30–22:00 Uhr<br>Dienstag &amp; Mittwoch Ruhetag</p></div>
+      <div><h4>Kontakt</h4><p>Diebsgrundweg · 60487 Frankfurt am Main<br>Tel. <a href="tel:+496966129987">+49 69 66129987</a><br><a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p></div>
+      <div><h4>Folgen</h4><p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p></div>
+    </div>
+    <div class="footer-bottom"><span>© Gasthaus Ginnheimer Höhe</span><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+</script>
+</body>
+</html>

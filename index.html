@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gasthaus Ginnheimer Höhe · Restaurant in Frankfurt-Ginnheim</title>
+<meta name="description" content="Gasthaus Ginnheimer Höhe: regionale Küche mit italienischer Lebensart in Frankfurt-Ginnheim. Frische Pasta, hausgemachte Kuchen, Tagesgerichte.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo" aria-label="Gasthaus Ginnheimer Höhe">
+    <img src="logo.svg" alt="">
+    <b>Ginnheimer Höhe</b>
+  </a>
+  <button class="nav-toggle" aria-label="Menü">Menü</button>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="speisekarte.html">Speisekarte</a>
+    <a href="getraenke.html">Getränke</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="kontakt.html#reservieren" class="btn">Reservieren</a>
+  </nav>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <span class="kicker">Restaurant · Frankfurt-Ginnheim</span>
+  <h1>Einfach <em>gutes</em> Essen.</h1>
+  <p>Regionale Küche mit italienischer Lebensart – frische Pasta, hausgemachte Kuchen und Klassiker, entspannt serviert auf der Ginnheimer Höhe.</p>
+  <div class="cta">
+    <a href="kontakt.html#reservieren" class="btn-solid">Tisch reservieren</a>
+    <a href="speisekarte.html" class="btn-ghost">Zur Speisekarte</a>
+  </div>
+</section>
+
+<!-- ===================== SLIDER: Aus der Küche ===================== -->
+<section class="slider-sec">
+  <div class="wrap">
+    <div class="slider-head">
+      <div>
+        <span class="kicker">Aus der Sommerkarte</span>
+        <h2>Aus unserer Küche</h2>
+      </div>
+      <div class="slider-ctrls">
+        <button class="prev" aria-label="Zurück">‹</button>
+        <button class="next" aria-label="Weiter">›</button>
+      </div>
+    </div>
+
+    <div class="slider-viewport">
+      <div class="slider-track" id="track">
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/napoli.jpg" alt="Frische Pasta mit Tomaten" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Pasta</span>
+            <h3>Frische Pasta, hausgemacht</h3>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/ragu.jpg" alt="Spätzle mit Rinderragù" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Hauptspeisen</span>
+            <h3>Spätzle mit Rinderragù</h3>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/schnitzel.jpg" alt="Schnitzel mit Beilagen" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Hauptspeisen</span>
+            <h3>Schnitzel-Klassiker</h3>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/fisch.jpg" alt="Fisch mit Saisongemüse" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Saisonal</span>
+            <h3>Fisch &amp; Saisongemüse</h3>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/salat.jpg" alt="Wildkräutersalat" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Salate</span>
+            <h3>Wildkräutersalat</h3>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ph"><img src="img/dishes/dessert.jpg" alt="Hausgemachtes Dessert" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Dessert</span>
+            <h3>Hausgemachtes Dessert</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE (Öffnungszeiten) ===================== -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+  </div>
+</div>
+
+<!-- ===================== FEATURE: Über uns ===================== -->
+<section class="feature" id="ueber-uns">
+  <div class="feature__inner">
+    <span class="kicker">Über uns</span>
+    <h2>Wo Frankfurt zu Tisch geht.</h2>
+    <p>Auf der Ginnheimer Höhe verbinden wir bodenständige, regionale Küche mit italienischer Lebensart. Hausgemachte Pasta, frische Salate und Kuchen aus eigener Herstellung – an einem Ort, an dem man gern sitzen bleibt.</p>
+    <a class="link-arrow" href="kontakt.html">→ Mehr über uns</a>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="cta-card">
+      <span class="kicker">Reservierung</span>
+      <h2>Bald bei uns auf der Höhe?</h2>
+      <p>Reservieren Sie Ihren Tisch telefonisch oder schreiben Sie uns – wir freuen uns auf Ihren Besuch.</p>
+      <a href="kontakt.html#reservieren" class="btn-ghost">Tisch reservieren</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Öffnungszeiten</h4>
+        <p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>
+        Freitag – Sonntag 11:30–22:00 Uhr<br>
+        Dienstag &amp; Mittwoch Ruhetag</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Gasthaus Ginnheimer Höhe<br>
+        Diebsgrundweg · 60487 Frankfurt am Main<br>
+        Tel. <a href="tel:+496966129987">+49 69 66129987</a><br>
+        <a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p>
+      </div>
+      <div>
+        <h4>Folgen</h4>
+        <p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Gasthaus Ginnheimer Höhe</span>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile-Nav
+  const t=document.querySelector('.nav-toggle'), n=document.querySelector('.nav');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+
+  // Slider: Pfeil-Buttons + Drag-to-scroll
+  const track=document.getElementById('track');
+  const prev=document.querySelector('.prev'), next=document.querySelector('.next');
+  const step=()=>{const s=track.querySelector('.slide');return s?s.getBoundingClientRect().width+24:320;};
+  next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+  const sync=()=>{prev.disabled=track.scrollLeft<8;
+    next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;};
+  track.addEventListener('scroll',sync); window.addEventListener('resize',sync); sync();
+
+  // Drag
+  let down=false,sx=0,sl=0;
+  track.addEventListener('pointerdown',e=>{down=true;sx=e.pageX;sl=track.scrollLeft;track.classList.add('dragging');track.setPointerCapture(e.pointerId);});
+  track.addEventListener('pointermove',e=>{if(!down)return;track.scrollLeft=sl-(e.pageX-sx);});
+  const up=()=>{down=false;track.classList.remove('dragging');};
+  track.addEventListener('pointerup',up); track.addEventListener('pointercancel',up);
+</script>
+</body>
+</html>
