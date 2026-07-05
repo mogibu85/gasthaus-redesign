@@ -76,7 +76,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:0 clamp(1.25rem,4vw,3rem) clamp(3rem,7vw,6rem);
   color:var(--cream);
-  background:url("img/hero-ig.jpg") center/cover no-repeat;
+  background:url("img/hero-shoot.jpg") center/cover no-repeat;
 }
 .hero::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(23,39,25,.35) 0%,rgba(23,39,25,.78) 100%);z-index:0}
@@ -134,7 +134,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 
 /* ---------- FEATURE-Karte (gerundet, Bild) ---------- */
 .feature{margin-inline:var(--gutter);border-radius:var(--radius);overflow:hidden;position:relative;
-  color:var(--cream);background:url("img/interior.jpg") center/cover no-repeat;
+  color:var(--cream);background:url("img/gastraum.jpg") center/cover no-repeat;
   display:flex;align-items:flex-end;min-height:clamp(520px,72vh,840px)}
 .feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,39,25,.1),rgba(23,39,25,.72));z-index:0}
 .feature__inner{position:relative;z-index:1;padding:clamp(2rem,5vw,5rem);max-width:640px}
