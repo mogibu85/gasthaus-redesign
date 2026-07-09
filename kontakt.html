@@ -125,24 +125,44 @@
   t.addEventListener('click',()=>n.classList.toggle('open'));
   n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
 
-  // Reservierung via FormSubmit (AJAX), Fallback: Telefon
+  // Reservierung via FormSubmit (AJAX) mit Timeout; Fallback: vorbefüllte E-Mail + Telefon
   const rf=document.getElementById('reserveForm'), fst=document.getElementById('formStatus');
+  const submitBtn=rf.querySelector('button[type="submit"]');
+  function mailtoFallback(data){
+    const body=encodeURIComponent(
+      'Reservierungsanfrage\n\nName: '+(data.name||'')+'\nTelefon: '+(data.phone||'')+
+      '\nDatum: '+(data.date||'')+'\nUhrzeit: '+(data.time||'')+'\nPersonen: '+(data.guests||'')+
+      (data.email?'\nE-Mail: '+data.email:'')+(data.message?'\nNachricht: '+data.message:''));
+    return 'mailto:gasthausginnheimerhoehe@gmail.com?subject='+encodeURIComponent('Reservierungsanfrage')+'&body='+body;
+  }
+  function showFallback(data){
+    fst.classList.add('err');
+    fst.innerHTML='Das Formular ist gerade nicht erreichbar. '+
+      '<a href="'+mailtoFallback(data)+'" style="color:var(--burg);text-decoration:underline">Anfrage per E-Mail senden</a>'+
+      ' oder anrufen: <a href="tel:+496966129987" style="color:var(--burg);font-weight:600">+49 69 66129987</a>';
+  }
   rf.addEventListener('submit', async e=>{
     e.preventDefault();
     fst.className='form-status'; fst.textContent='Wird gesendet …';
+    submitBtn.disabled=true;
     const data=Object.fromEntries(new FormData(rf).entries());
+    const ctrl=new AbortController();
+    const timer=setTimeout(()=>ctrl.abort(),12000);
     try{
       const r=await fetch('https://formsubmit.co/ajax/gasthausginnheimerhoehe@gmail.com',{
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify(data)
+        body:JSON.stringify(data),
+        signal:ctrl.signal
       });
       const d=await r.json();
       if(String(d.success)==='true'){fst.classList.add('ok');fst.textContent='Danke! Wir melden uns zur Bestätigung bei Ihnen.';rf.reset();}
-      else{fst.classList.add('err');fst.textContent=d.message||'Es ist ein Fehler aufgetreten. Bitte rufen Sie uns an: +49 69 66129987.';}
+      else{showFallback(data);}
     }catch{
-      fst.classList.add('err');
-      fst.textContent='Netzwerkfehler. Bitte rufen Sie uns an: +49 69 66129987.';
+      showFallback(data);
+    }finally{
+      clearTimeout(timer);
+      submitBtn.disabled=false;
     }
   });
 </script>
