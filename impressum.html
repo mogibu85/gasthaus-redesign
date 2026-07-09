@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum · Gasthaus Ginnheimer Höhe</title>
+<meta name="description" content="Impressum des Gasthauses Ginnheimer Höhe, Frankfurt am Main.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <a href="index.html" class="logo" aria-label="Gasthaus Ginnheimer Höhe">
+    <img src="logo.svg" alt=""><b>Ginnheimer Höhe</b>
+  </a>
+  <button class="nav-toggle" aria-label="Menü">Menü</button>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="speisekarte.html">Speisekarte</a>
+    <a href="getraenke.html">Getränke</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="kontakt.html#reservieren" class="btn">Reservieren</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Rechtliches</span>
+    <h1>Impressum</h1>
+  </div>
+</section>
+
+<section class="legal wrap">
+  <h2>Angaben gemäß § 5 TMG</h2>
+  <address>
+    Gasthaus Ginnheimer Höhe<br>
+    Diebsgrundweg<br>
+    60487 Frankfurt am Main<br>
+    Deutschland
+  </address>
+
+  <h2>Kontakt</h2>
+  <p>Telefon: <a href="tel:+496966129987">+49 69 66129987</a><br>
+  E-Mail: <a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p>
+
+  <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+  <address>
+    Gasthaus Ginnheimer Höhe<br>
+    Diebsgrundweg<br>
+    60487 Frankfurt am Main
+  </address>
+
+  <h2>Haftung für Inhalte</h2>
+  <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+  <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+  <h2>Haftung für Links</h2>
+  <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+  <h2>Urheberrecht</h2>
+  <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><h4>Öffnungszeiten</h4><p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>Freitag – Sonntag 11:30–22:00 Uhr<br>Dienstag &amp; Mittwoch Ruhetag</p></div>
+      <div><h4>Kontakt</h4><p>Diebsgrundweg · 60487 Frankfurt am Main<br>Tel. <a href="tel:+496966129987">+49 69 66129987</a><br><a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p></div>
+      <div><h4>Folgen</h4><p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p></div>
+    </div>
+    <div class="footer-bottom"><span>© Gasthaus Ginnheimer Höhe</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+</script>
+</body>
+</html>
