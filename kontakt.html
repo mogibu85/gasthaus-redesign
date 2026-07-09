@@ -32,11 +32,41 @@
   <div class="wrap">
     <span class="kicker">Besuchen Sie uns</span>
     <h1>Kontakt &amp; Anfahrt</h1>
-    <p>Wir freuen uns auf Ihren Besuch auf der Ginnheimer Höhe. Reservierungen am liebsten telefonisch.</p>
+    <p>Wir freuen uns auf Ihren Besuch auf der Ginnheimer Höhe – reservieren Sie telefonisch oder direkt über unser Formular.</p>
   </div>
 </section>
 
-<section class="contact" id="reservieren">
+<section class="res-sec" id="reservieren">
+  <div class="wrap">
+    <div class="res-card">
+      <h3>Reservierung anfragen</h3>
+      <p>Schicken Sie uns Ihre Wunschzeit – wir melden uns zur Bestätigung. Oder rufen Sie direkt an: <a href="tel:+496966129987" style="color:var(--burg);font-weight:600">+49 69 66129987</a></p>
+      <form class="res-form" id="reserveForm" action="https://formsubmit.co/gasthausginnheimerhoehe@gmail.com" method="POST">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="Neue Reservierungsanfrage – Gasthaus Ginnheimer Höhe">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Telefon<input type="tel" name="phone" required></label>
+        </div>
+        <div class="form-row">
+          <label>Datum<input type="date" name="date" required></label>
+          <label>Uhrzeit<input type="time" name="time" required></label>
+        </div>
+        <div class="form-row">
+          <label>Personen<input type="number" name="guests" min="1" max="40" required></label>
+          <label>E-Mail (optional)<input type="email" name="email"></label>
+        </div>
+        <label>Nachricht (optional)<textarea name="message" rows="3"></textarea></label>
+        <button type="submit">Reservierung anfragen</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
   <div class="wrap">
     <div class="contact-grid">
 
@@ -94,6 +124,27 @@
   const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
   t.addEventListener('click',()=>n.classList.toggle('open'));
   n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+
+  // Reservierung via FormSubmit (AJAX), Fallback: Telefon
+  const rf=document.getElementById('reserveForm'), fst=document.getElementById('formStatus');
+  rf.addEventListener('submit', async e=>{
+    e.preventDefault();
+    fst.className='form-status'; fst.textContent='Wird gesendet …';
+    const data=Object.fromEntries(new FormData(rf).entries());
+    try{
+      const r=await fetch('https://formsubmit.co/ajax/gasthausginnheimerhoehe@gmail.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+      });
+      const d=await r.json();
+      if(String(d.success)==='true'){fst.classList.add('ok');fst.textContent='Danke! Wir melden uns zur Bestätigung bei Ihnen.';rf.reset();}
+      else{fst.classList.add('err');fst.textContent=d.message||'Es ist ein Fehler aufgetreten. Bitte rufen Sie uns an: +49 69 66129987.';}
+    }catch{
+      fst.classList.add('err');
+      fst.textContent='Netzwerkfehler. Bitte rufen Sie uns an: +49 69 66129987.';
+    }
+  });
 </script>
 </body>
 </html>
