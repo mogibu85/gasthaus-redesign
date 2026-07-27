@@ -105,6 +105,14 @@
   const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
   t.addEventListener('click',()=>n.classList.toggle('open'));
   n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+  // Betriebsferien-Hinweise ab 20.08.2026 automatisch ausblenden
+  if (new Date() >= new Date(2026, 7, 20)) {
+    document.querySelectorAll('.holiday-note').forEach(e => e.remove());
+    document.querySelectorAll('.marquee__track span').forEach(s => {
+      s.textContent = 'Mo & Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di & Mi Ruhetag ·';
+    });
+  }
+
 </script>
 </body>
 </html>
