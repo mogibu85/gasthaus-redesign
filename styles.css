@@ -130,6 +130,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   color:var(--green);font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,2vw,1.6rem)}
 .marquee__track{display:inline-block;animation:scroll 32s linear infinite}
 .marquee__track span{padding-inline:1.2rem}
+.marquee .mq-ferien{color:var(--burg);font-weight:600;font-style:inherit}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ---------- FEATURE-Karte (gerundet, Bild) ---------- */
