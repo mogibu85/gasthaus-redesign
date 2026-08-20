@@ -118,7 +118,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div><h4>Öffnungszeiten</h4><p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>Freitag – Sonntag 11:30–22:00 Uhr<br>Dienstag &amp; Mittwoch Ruhetag</p><p class="holiday-note">Betriebsferien: 10.–18. August · ab Donnerstag, 20. August, sind wir wieder für Sie da</p></div>
+      <div><h4>Öffnungszeiten</h4><p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>Freitag – Sonntag 11:30–22:00 Uhr<br>Dienstag &amp; Mittwoch Ruhetag</p></div>
       <div><h4>Kontakt</h4><p>Diebsgrundweg · 60487 Frankfurt am Main<br>Tel. <a href="tel:+496966129987">+49 69 66129987</a><br><a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p></div>
       <div><h4>Folgen</h4><p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p></div>
     </div>
@@ -130,13 +130,6 @@
   const t=document.querySelector('.nav-toggle'),n=document.querySelector('.nav');
   t.addEventListener('click',()=>n.classList.toggle('open'));
   n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
-  // Betriebsferien-Hinweise ab 20.08.2026 automatisch ausblenden
-  if (new Date() >= new Date(2026, 7, 20)) {
-    document.querySelectorAll('.holiday-note').forEach(e => e.remove());
-    document.querySelectorAll('.marquee__track span').forEach(s => {
-      s.textContent = 'Mo & Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di & Mi Ruhetag ·';
-    });
-  }
 
 </script>
 </body>
