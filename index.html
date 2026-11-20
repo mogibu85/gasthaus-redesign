@@ -2,156 +2,495 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gasthaus Ginnheimer Höhe · Restaurant in Frankfurt-Ginnheim</title>
-<meta name="description" content="Gasthaus Ginnheimer Höhe: regionale Küche mit italienischer Lebensart in Frankfurt-Ginnheim. Frische Pasta, hausgemachte Kuchen, Tagesgerichte.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..600&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..600&display=swap">
-<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gasthaus Ginnheimer Höhe – Restaurant Frankfurt</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:      #0d0d0b;
+    --warm-white: #faf8f4;
+    --sand:       #ede8de;
+    --sage:       #6b7c5e;
+    --sage-mid:   #8a9e7a;
+    --muted:      #7a7060;
+    --border:     #e2ddd4;
+    --max:        740px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--warm-white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── UTILS ─────────────────────────────── */
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── NAV ────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--black);
+    height: 56px;
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto; padding: 0 24px;
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo img {
+    height: 32px; width: auto; display: block;
+    /* logo has black bg – fits perfectly on black nav */
+  }
+  .nav-links {
+    display: flex; gap: 24px; list-style: none; align-items: center;
+  }
+  .nav-links a {
+    font-size: 12px; font-weight: 400;
+    color: rgba(250,248,244,0.5);
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    background: var(--sage) !important;
+    color: #fff !important;
+    padding: 7px 18px !important;
+    border-radius: 100px !important;
+    font-size: 12px !important; font-weight: 500 !important;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--sage-mid) !important; }
+
+  /* Mobile nav */
+  .nav-links-mobile { display: none; }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .nav-links-mobile {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-links-mobile a {
+      font-size: 12px; font-weight: 400;
+      color: rgba(250,248,244,0.55);
+      text-decoration: none;
+    }
+    .nav-cta-m {
+      background: var(--sage);
+      color: #fff; padding: 7px 16px;
+      border-radius: 100px; font-size: 12px; font-weight: 500;
+      text-decoration: none;
+    }
+  }
+
+
+  /* ── BETRIEBSFERIEN (verschwindet automatisch ab 26.11.2026) ── */
+  .betriebsferien {
+    margin-top: 56px;
+    background: var(--sage);
+    color: #fff;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 13px; font-weight: 400; line-height: 1.5;
+  }
+  .betriebsferien strong { font-weight: 500; }
+  .betriebsferien + section .hero { padding-top: 0; }
+  .bf-note { color: #fff; font-weight: 500; }
+  footer .bf-note { color: rgba(250,248,244,0.85); }
+
+  /* ── HERO ───────────────────────────────── */
+  .hero {
+    padding-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100svh;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    padding: 64px 32px 64px 24px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 20px; height: 1px; background: var(--sage);
+  }
+
+  .hero-text h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 300; line-height: 1.2;
+    letter-spacing: -0.02em; color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .hero-text h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 2.5vw, 24px);
+    font-weight: 300; font-style: italic;
+    color: var(--sage); margin-bottom: 32px;
+  }
+
+  .hero-statement {
+    font-size: 14px; font-weight: 300; font-style: italic;
+    line-height: 1.9; color: var(--muted);
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+    margin-bottom: 36px;
+  }
+
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-dark {
+    background: var(--black); color: #fff;
+    padding: 12px 24px; border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .btn-dark:hover { opacity: 0.75; }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--black);
+    padding: 12px 24px; border-radius: 100px;
+    font-size: 12px; font-weight: 400;
+    text-decoration: none; transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--black); }
+
+  /* Logo panel – black bg is intentional brand moment */
+  .hero-logo {
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    padding: 48px 32px;
+  }
+  .hero-logo img {
+    width: 100%; max-width: 260px; height: auto; display: block;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-logo {
+      order: -1;
+      padding: 48px 40px;
+      min-height: 280px;
+    }
+    .hero-logo img { max-width: 200px; }
+    .hero-text { padding: 40px 24px 48px; }
+  }
+
+  /* ── INFO BAR ───────────────────────────── */
+  .info-bar {
+    background: var(--sage);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .info-bar-inner {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .info-cell {
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .info-cell:last-child { border-right: none; }
+  .info-cell-label {
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); margin-bottom: 8px;
+  }
+  .info-cell-value {
+    font-size: 12px; font-weight: 300; line-height: 1.85; color: #fff;
+  }
+  .info-cell-value a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .info-cell-value a:hover { color: #fff; }
+
+  @media (max-width: 480px) {
+    .info-bar-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+    .info-cell:nth-child(2) { border-right: none; }
+    .info-cell:nth-child(3) {
+      grid-column: 1 / -1;
+      border-right: none;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+  }
+
+  /* ── MENU ───────────────────────────────── */
+  .menu-section {
+    padding: 72px 0 48px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .menu-section .wrap { }
+
+  .section-eyebrow {
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300; letter-spacing: -0.02em;
+    color: var(--black); margin-bottom: 32px;
+  }
+
+  .slideshow-wrap {
+    position: relative; overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .slide { display: none; }
+  .slide.active { display: block; }
+  .slide img { width: 100%; height: auto; display: block; }
+
+  .slide-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(250,248,244,0.92);
+    border: 1px solid var(--border);
+    border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .slide-btn:hover { background: #fff; transform: translateY(-50%) scale(1.05); }
+  .slide-btn svg { width: 16px; height: 16px; color: var(--black); }
+  .slide-prev { left: 14px; }
+  .slide-next { right: 14px; }
+
+  .slide-dots {
+    display: flex; justify-content: center; gap: 6px;
+    padding: 16px 0 0;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sand); cursor: pointer; transition: all 0.25s;
+  }
+  .dot.active { background: var(--sage); transform: scale(1.3); }
+
+  /* ── SPECIALS ───────────────────────────── */
+  .specials {
+    padding: 0 0 72px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .specials-inner {
+    background: var(--sand);
+    border-radius: 12px;
+    padding: 40px 36px;
+  }
+  .specials-inner h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 300;
+    color: var(--black); margin-bottom: 14px;
+  }
+  .specials-inner p {
+    font-size: 13px; font-weight: 300; font-style: italic;
+    line-height: 1.9; color: var(--muted);
+  }
+  .specials-inner p strong {
+    color: var(--black); font-weight: 400; font-style: normal;
+  }
+
+  /* ── FOOTER ─────────────────────────────── */
+  footer {
+    background: var(--black);
+    padding: 52px 0 36px;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  footer h4 {
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(250,248,244,0.35); margin-bottom: 14px;
+  }
+  footer p, footer a {
+    font-size: 12px; font-weight: 300; line-height: 2;
+    color: rgba(250,248,244,0.45); text-decoration: none; display: block;
+  }
+  footer a:hover { color: rgba(250,248,244,0.85); }
+
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-inner > div:last-child { grid-column: 1 / -1; }
+  }
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="logo" aria-label="Gasthaus Ginnheimer Höhe">
-    <img src="logo.svg" alt="">
-    <b>Ginnheimer Höhe</b>
-  </a>
-  <button class="nav-toggle" aria-label="Menü">Menü</button>
-  <nav class="nav">
-    <a href="index.html">Start</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="speisekarte.html">Speisekarte</a>
-    <a href="getraenke.html">Getränke</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="kontakt.html#reservieren" class="btn">Reservieren</a>
-  </nav>
-</header>
-
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-  <span class="kicker">Restaurant · Frankfurt-Ginnheim</span>
-  <h1>Einfach <em>gutes</em> Essen.</h1>
-  <p>Regionale Küche mit italienischer Lebensart – frische Pasta, hausgemachte Kuchen und Klassiker, entspannt serviert auf der Ginnheimer Höhe.</p>
-  <div class="cta">
-    <a href="kontakt.html#reservieren" class="btn-solid">Tisch reservieren</a>
-    <a href="speisekarte.html" class="btn-ghost">Zur Speisekarte</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo_gasthaus_horizontal.png" alt="Gasthaus Ginnheimer Höhe">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#wir">Über uns</a></li>
+      <li><a href="#menu">Speisekarte</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:+496966129987" class="nav-cta">Reservieren</a></li>
+    </ul>
+    <div class="nav-links-mobile">
+      <a href="#menu">Speisekarte</a>
+      <a href="tel:+496966129987" class="nav-cta-m">Reservieren</a>
+    </div>
   </div>
-</section>
+</nav>
 
-<!-- ===================== SLIDER: Aus der Küche ===================== -->
-<section class="slider-sec">
-  <div class="wrap">
-    <div class="slider-head">
-      <div>
-        <span class="kicker">Aus der Sommerkarte</span>
-        <h2>Aus unserer Küche</h2>
-      </div>
-      <div class="slider-ctrls">
-        <button class="prev" aria-label="Zurück">‹</button>
-        <button class="next" aria-label="Weiter">›</button>
+<!-- BETRIEBSFERIEN -->
+<div class="betriebsferien bf" id="betriebsferien">
+  <strong>Betriebsferien vom 20. bis 25. November.</strong>
+  Ab Donnerstag, 26. November, ab 17 Uhr sind wir wieder für Sie da.
+</div>
+
+<!-- HERO -->
+<section id="wir">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Frankfurt am Main</span>
+      <h1>Willkommen im Gasthaus Ginnheimer Höhe</h1>
+      <h2>Einfach gutes Essen.</h2>
+      <p class="hero-statement">Ein traditionelles Restaurant in Frankfurt, das Gemütlichkeit und regionale Küche vereint. Hier trifft gutbürgerliche Küche auf Gastrotradition mit italienischer Lebensart.</p>
+      <div class="hero-actions">
+        <a href="tel:+496966129987" class="btn-dark">Tisch reservieren</a>
+        <a href="#menu" class="btn-outline">Speisekarte</a>
       </div>
     </div>
-
-    <div class="slider-viewport">
-      <div class="slider-track" id="track">
-        <article class="slide">
-          <div class="ph"><img src="img/dishes/pasta-pro.jpg" alt="Frische Pasta mit Pfifferlingen und Parmesan" loading="lazy"></div>
-          <div class="body">
-            <span class="cat">Pasta</span>
-            <h3>Frische Pasta, hausgemacht</h3>
-          </div>
-        </article>
-        <article class="slide">
-          <div class="ph"><img src="img/dishes/parmesan.jpg" alt="Parmesan wird frisch über die Pasta gehobelt" loading="lazy"></div>
-          <div class="body">
-            <span class="cat">Aus der Küche</span>
-            <h3>Mit frisch gehobeltem Parmesan</h3>
-          </div>
-        </article>
-        <article class="slide">
-          <div class="ph"><img src="img/dishes/tomate-mozzarella.jpg" alt="Bunte Tomaten mit Büffelmozzarella" loading="lazy"></div>
-          <div class="body">
-            <span class="cat">Tagesgerichte</span>
-            <h3>Bunte Tomaten &amp; Büffelmozzarella</h3>
-          </div>
-        </article>
-        <article class="slide">
-          <div class="ph"><img src="img/dishes/zum-teilen.jpg" alt="Mehrere angerichtete Teller auf weißem Tischtuch" loading="lazy"></div>
-          <div class="body">
-            <span class="cat">Zum Teilen</span>
-            <h3>Kleine Gerichte &amp; Klassiker</h3>
-          </div>
-        </article>
-        <article class="slide">
-          <div class="ph"><img src="img/dishes/serviert.jpg" alt="Gericht wird am Tisch serviert" loading="lazy"></div>
-          <div class="body">
-            <span class="cat">Am Tisch</span>
-            <h3>Frisch serviert</h3>
-          </div>
-        </article>
-      </div>
+    <div class="hero-logo">
+      <img src="logo_gasthaus.png" alt="Gasthaus Ginnheimer Höhe Logo">
     </div>
   </div>
 </section>
 
-<!-- ===================== MARQUEE (Öffnungszeiten) ===================== -->
-<div class="marquee">
-  <div class="marquee__track">
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+<!-- INFO BAR -->
+<div id="kontakt" class="info-bar">
+  <div class="info-bar-inner">
+    <div class="info-cell">
+      <p class="info-cell-label">Öffnungszeiten</p>
+      <p class="info-cell-value">
+        Mo, Do: 17–22 Uhr<br>
+        Di, Mi: geschlossen<br>
+        Fr, Sa, So: 11:30–22 Uhr
+        <br><span class="bf bf-note">Betriebsferien 20.–25.11.</span>
+      </p>
+    </div>
+    <div class="info-cell">
+      <p class="info-cell-label">Kontakt</p>
+      <p class="info-cell-value">
+        <a href="tel:+496966129987">069 66129987</a><br>
+        <a href="mailto:info@ginnheimerhoehe.de">info@ginnheimerhoehe.de</a><br>
+        Diebsgrundweg, 60487 Frankfurt
+      </p>
+    </div>
+    <div class="info-cell">
+      <p class="info-cell-label">Social & Links</p>
+      <p class="info-cell-value">
+        <a href="https://www.instagram.com/gasthausginnheimerhoehe/" target="_blank">Instagram</a><br>
+        <a href="impressum.html">Impressum</a><br>
+        <a href="datenschutz.html">Datenschutz</a>
+      </p>
+    </div>
   </div>
 </div>
 
-<!-- ===================== FEATURE: Über uns ===================== -->
-<section class="feature" id="ueber-uns">
-  <div class="feature__inner">
-    <span class="kicker">Über uns</span>
-    <h2>Wo Frankfurt zu Tisch geht.</h2>
-    <p>Auf der Ginnheimer Höhe verbinden wir bodenständige, regionale Küche mit italienischer Lebensart. Hausgemachte Pasta, frische Salate und Kuchen aus eigener Herstellung – an einem Ort, an dem man gern sitzen bleibt.</p>
-    <a class="link-arrow" href="ueber-uns.html">→ Mehr über uns</a>
-  </div>
-</section>
-
-<!-- ===================== CTA ===================== -->
-<section class="cta-sec">
+<!-- MENU -->
+<section id="menu" class="menu-section">
   <div class="wrap">
-    <div class="cta-card">
-      <span class="kicker">Reservierung</span>
-      <h2>Bald bei uns auf der Höhe?</h2>
-      <p>Reservieren Sie Ihren Tisch telefonisch oder schreiben Sie uns – wir freuen uns auf Ihren Besuch.</p>
-      <a href="kontakt.html#reservieren" class="btn-ghost">Tisch reservieren</a>
+    <p class="section-eyebrow">Unsere Karte</p>
+    <h2 class="section-title">Speisekarte</h2>
+    <div class="slideshow-wrap">
+      <div class="slide active">
+        <img src="https://framerusercontent.com/images/XrJykyTOxBbkxZX26zPcmNVyY.png" alt="Speisekarte Seite 1">
+      </div>
+      <div class="slide">
+        <img src="https://framerusercontent.com/images/a0vi0FimjBFgFpheChIrFiIMk.png" alt="Speisekarte Seite 2">
+      </div>
+      <div class="slide">
+        <img src="https://framerusercontent.com/images/XvPEkvdUGFnway2w2uA0h7KQqA.png" alt="Speisekarte Seite 3">
+      </div>
+      <div class="slide">
+        <img src="https://framerusercontent.com/images/HHUuY8cCIS9Y0meXchfUq5pzA.png" alt="Speisekarte Seite 4">
+      </div>
+      <div class="slide">
+        <img src="https://framerusercontent.com/images/aTCbICUjQ4KyamZYs3M6AeGpd2s.png" alt="Speisekarte Seite 5">
+      </div>
+      <button class="slide-btn slide-prev" onclick="changeSlide(-1)" aria-label="Zurück">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="slide-btn slide-next" onclick="changeSlide(1)" aria-label="Weiter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+    <div class="slide-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
+<!-- SPECIALS -->
+<div class="specials">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4>Öffnungszeiten</h4>
-        <p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>
-        Freitag – Sonntag 11:30–22:00 Uhr<br>
-        Dienstag &amp; Mittwoch Ruhetag</p>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-        <p>Gasthaus Ginnheimer Höhe<br>
-        Diebsgrundweg · 60487 Frankfurt am Main<br>
-        Tel. <a href="tel:+496966129987">+49 69 66129987</a><br>
-        <a href="mailto:gasthausginnheimerhoehe@gmail.com">gasthausginnheimerhoehe@gmail.com</a></p>
-      </div>
-      <div>
-        <h4>Folgen</h4>
-        <p><a href="https://instagram.com/gasthausginnheimerhoehe">→ @gasthausginnheimerhoehe</a></p>
-      </div>
+    <div class="specials-inner">
+      <h3>Spezialitäten</h3>
+      <p>Unsere Speisekarte bietet eine Auswahl an regionalen Spezialitäten und klassischen Gerichten. <strong>Täglich</strong> gibt es frische <strong>hausgemachte Kuchen</strong> und herzhaft <strong>Zwiebelkuchen oder Gemüse-Quiche</strong>. <strong>Freitags</strong> wird es immer <strong>ein wechselndes Fischgericht</strong>, <strong>Sonntag</strong> einen <strong>Braten</strong>. Fragen Sie gerne nach aktuellen Empfehlungen unseres Küchenteams.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© Gasthaus Ginnheimer Höhe</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Öffnungszeiten</h4>
+      <p>Mo, Do 17:00–22:00</p>
+      <p>Di, Mi geschlossen</p>
+      <p>Fr 11:30–22:00</p>
+      <p>Sa–So 10:00–23:00</p>
+      <p>Feiertage auf Anfrage</p>
+      <p class="bf bf-note">Betriebsferien 20.–25.11.</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <a href="tel:+496966129987">069 66129987</a>
+      <a href="mailto:info@ginnheimerhoehe.de">info@ginnheimerhoehe.de</a>
+      <p>Ginnheimer Höhe 1<br>60487 Frankfurt</p>
+    </div>
+    <div>
+      <h4>Links</h4>
+      <a href="#menu">Speisekarte</a>
+      <a href="https://www.instagram.com/gasthausginnheimerhoehe/" target="_blank">Instagram</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </div>
@@ -159,28 +498,45 @@
 </footer>
 
 <script>
-  // Mobile-Nav
-  const t=document.querySelector('.nav-toggle'), n=document.querySelector('.nav');
-  t.addEventListener('click',()=>n.classList.toggle('open'));
-  n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
 
+  function updateSlideshow() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i)   => d.classList.toggle('active', i === current));
+  }
+  function changeSlide(dir) {
+    current = (current + dir + slides.length) % slides.length;
+    updateSlideshow();
+  }
+  function goToSlide(n) {
+    current = n;
+    updateSlideshow();
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  changeSlide(-1);
+    if (e.key === 'ArrowRight') changeSlide(1);
+  });
 
-  // Slider: Pfeil-Buttons + Drag-to-scroll
-  const track=document.getElementById('track');
-  const prev=document.querySelector('.prev'), next=document.querySelector('.next');
-  const step=()=>{const s=track.querySelector('.slide');return s?s.getBoundingClientRect().width+24:320;};
-  next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
-  prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
-  const sync=()=>{prev.disabled=track.scrollLeft<8;
-    next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;};
-  track.addEventListener('scroll',sync); window.addEventListener('resize',sync); sync();
+  // Touch swipe support
+  let touchX = null;
+  document.querySelector('.slideshow-wrap').addEventListener('touchstart', e => {
+    touchX = e.touches[0].clientX;
+  });
+  document.querySelector('.slideshow-wrap').addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) changeSlide(diff > 0 ? 1 : -1);
+    touchX = null;
+  });
 
-  // Drag
-  let down=false,sx=0,sl=0;
-  track.addEventListener('pointerdown',e=>{down=true;sx=e.pageX;sl=track.scrollLeft;track.classList.add('dragging');track.setPointerCapture(e.pointerId);});
-  track.addEventListener('pointermove',e=>{if(!down)return;track.scrollLeft=sl-(e.pageX-sx);});
-  const up=()=>{down=false;track.classList.remove('dragging');};
-  track.addEventListener('pointerup',up); track.addEventListener('pointercancel',up);
+  // Betriebsferien-Hinweise entfernen sich ab 26.11.2026 automatisch
+  (function () {
+    if (new Date() >= new Date('2026-11-26T00:00:00')) {
+      document.querySelectorAll('.bf').forEach(function (el) { el.remove(); });
+    }
+  })();
 </script>
 </body>
 </html>
