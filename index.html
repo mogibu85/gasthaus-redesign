@@ -99,10 +99,10 @@
 <!-- ===================== MARQUEE (Öffnungszeiten) ===================== -->
 <div class="marquee">
   <div class="marquee__track">
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
-    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag · <em class="mq-ferien">Betriebsferien 20.–25. November</em> ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag · <em class="mq-ferien">Betriebsferien 20.–25. November</em> ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag · <em class="mq-ferien">Betriebsferien 20.–25. November</em> ·</span>
+    <span>Mo &amp; Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di &amp; Mi Ruhetag · <em class="mq-ferien">Betriebsferien 20.–25. November</em> ·</span>
   </div>
 </div>
 
@@ -137,6 +137,7 @@
         <p>Montag &amp; Donnerstag 17:00–22:00 Uhr<br>
         Freitag – Sonntag 11:30–22:00 Uhr<br>
         Dienstag &amp; Mittwoch Ruhetag</p>
+        <p class="holiday-note">Betriebsferien: 20.–25. November · ab Donnerstag, 26. November, ab 17 Uhr sind wir wieder für Sie da</p>
       </div>
       <div>
         <h4>Kontakt</h4>
@@ -163,6 +164,13 @@
   const t=document.querySelector('.nav-toggle'), n=document.querySelector('.nav');
   t.addEventListener('click',()=>n.classList.toggle('open'));
   n.addEventListener('click',e=>{if(e.target.tagName==='A')n.classList.remove('open')});
+  // Betriebsferien-Hinweise ab 26.11.2026 automatisch ausblenden
+  if (new Date() >= new Date(2026, 10, 26)) {
+    document.querySelectorAll('.holiday-note').forEach(e => e.remove());
+    document.querySelectorAll('.marquee__track span').forEach(s => {
+      s.textContent = 'Mo & Do 17–22 Uhr · Fr – So 11:30–22 Uhr · Di & Mi Ruhetag ·';
+    });
+  }
 
 
   // Slider: Pfeil-Buttons + Drag-to-scroll
